@@ -17,11 +17,16 @@ struct RDSResponse {
 /// A simple Spin HTTP component.
 #[http_component]
 fn raadio_tallinn(_req: Request) -> Result<Response> {
-    let current_track = get_current_track()?;
+    match get_current_track() {
+        Ok(current_track) => Ok(http::Response::builder()
+            .status(200)
+            .body(Some(current_track.into()))?),
 
-    Ok(http::Response::builder()
-        .status(200)
-        .body(Some(current_track.into()))?)
+        Err(err) => {
+            eprintln!("ERROR: {}", err);
+            Err(anyhow!("Internal Server Error"))
+        }
+    }
 }
 
 fn get_current_track() -> Result<String> {
@@ -32,7 +37,7 @@ fn get_current_track() -> Result<String> {
 
     let body = response
         .into_body()
-        .ok_or(anyhow!("Failed to get current track from API"))?;
+        .ok_or(anyhow!("failed to consume current track response body"))?;
 
     let rds_response: RDSResponse = serde_json::from_slice(&body)?;
     Ok(rds_response.rds)
