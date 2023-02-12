@@ -1,0 +1,18 @@
+spin_version = "1"
+authors = ["Murdho Savila <murdho@murdho.com>"]
+description = "Listens to radio stations and notes down what is playing"
+name = "traccumulator"
+trigger = { type = "http", base = "/" }
+version = "0.1.0"
+
+[[component]]
+id = "raadio-tallinn"
+source = "raadio_tallinn/target/wasm32-wasi/release/raadio_tallinn.wasm"
+allowed_http_hosts = ["https://raadiotallinn.err.ee"]
+[component.trigger]
+route = "/raadio_tallinn"
+[component.build]
+command = "cargo build --target wasm32-wasi --release"
+workdir = "raadio_tallinn"
+[component.config]
+current_track_api_url = "https://raadiotallinn.err.ee/api/rds/getForChannel?channel=raadiotallinn"
