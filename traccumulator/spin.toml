@@ -10,7 +10,7 @@ id = "raadio-tallinn"
 source = "raadio_tallinn/target/wasm32-wasi/release/raadio_tallinn.wasm"
 allowed_http_hosts = ["https://raadiotallinn.err.ee"]
 [component.trigger]
-route = "/raadio_tallinn"
+route = "/raadio-tallinn"
 [component.build]
 command = "cargo build --target wasm32-wasi --release"
 workdir = "raadio_tallinn"
@@ -22,7 +22,7 @@ id = "groove-fm"
 source = "supla_fi/target/wasm32-wasi/release/supla_fi.wasm"
 allowed_http_hosts = ["https://supla-playlist.nm-services.nelonenmedia.fi"]
 [component.trigger]
-route = "/groove_fm"
+route = "/groove-fm"
 [component.build]
 command = "cargo build --target wasm32-wasi --release"
 workdir = "supla_fi"
