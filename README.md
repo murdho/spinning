@@ -2,13 +2,22 @@
 
 My serverless WebAssembly explorations using [Fermyon Spin](https://www.fermyon.com/spin).
 
+## redirecta
+
+Redirects all HTTP(S) requests to a specific URL.
+
+Preserves path, so that request to https://hypermedia.dev/book/contents will be redirected
+to https://hypermedia.systems/book/contents.
+
 ## traccumulator
 
-Accumulates current tracks from different radio station APIs and would ideally create playlists in Spotify for me to listen.
+Accumulates current tracks from different radio station APIs and would ideally create playlists in Spotify for me to
+listen.
 
 Right now only returns current track (sometimes also recent tracks) that's playing at a specific radio station.
 
-Later, when [Fermyon Cloud](https://www.fermyon.com/cloud) supports secrets, I intend to add database and component(s) for Spotify integration too.
+Later, when [Fermyon Cloud](https://www.fermyon.com/cloud) supports secrets, I intend to add database and component(s)
+for Spotify integration too.
 
 Ideally, the trigger would be cron instead of HTTP – I intend to explore that later, too.
 

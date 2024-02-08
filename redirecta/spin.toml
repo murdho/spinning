@@ -1,0 +1,23 @@
+spin_manifest_version = 2
+
+[application]
+name = "redirecta"
+version = "1.0.0"
+authors = ["Murdho Savila <murdho@murdho.com>"]
+description = "Redirects HTTP requests"
+
+[variables]
+destination_url = { default = "https://murdho.com" }
+
+[[trigger.http]]
+route = "/..."
+component = "redirecta"
+
+[component.redirecta]
+source = "target/wasm32-wasi/release/redirecta.wasm"
+allowed_outbound_hosts = []
+[component.redirecta.build]
+command = "cargo build --target wasm32-wasi --release"
+watch = ["src/**/*.rs", "Cargo.toml"]
+[component.redirecta.variables]
+destination_url = "{{ destination_url }}"
