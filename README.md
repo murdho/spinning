@@ -2,8 +2,6 @@
 
 My serverless WebAssembly explorations using [Fermyon Spin](https://www.fermyon.com/spin).
 
-# Services
-
 ## traccumulator
 
 Accumulates current tracks from different radio station APIs and would ideally create playlists in Spotify for me to listen.
@@ -17,7 +15,7 @@ Ideally, the trigger would be cron instead of HTTP – I intend to explore that 
 ### Radio stations
 
 | Station                                         | Component path                                               | HTTP path         |
-| ----------------------------------------------- | ------------------------------------------------------------ | ----------------- |
+|-------------------------------------------------|--------------------------------------------------------------|-------------------|
 | [Raadio Tallinn](https://raadiotallinn.err.ee/) | [traccumulator/raadio_tallinn](traccumulator/raadio_tallinn) | `/raadio-tallinn` |
 | [Groove FM](https://www.supla.fi/groovefm)      | [traccumulator/supla_fi](traccumulator/supla_fi)             | `/groove-fm`      |
 | [Loop](https://www.supla.fi/loop)               | [traccumulator/supla_fi](traccumulator/supla_fi)             | `/loop`           |
