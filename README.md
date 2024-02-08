@@ -4,10 +4,11 @@ My serverless WebAssembly explorations using [Fermyon Spin](https://www.fermyon.
 
 ## redirecta
 
-Redirects all HTTP(S) requests to a specific URL.
+Redirects all HTTP(S) requests to a specific URL while preserving path (but not query – I didn't bother supporting that).
 
-Preserves path, so that request to https://hypermedia.dev/book/contents will be redirected
-to https://hypermedia.systems/book/contents.
+For example, when `redirecta` is hosted at [hypermedia.dev](https://hypermedia.dev), then a request to
+ [hypermedia.**dev**/book/contents](https://hypermedia.dev/book/contents) gets redirected to
+[hypermedia.**systems**/book/contents](https://hypermedia.systems/book/contents).
 
 ## traccumulator
 
